@@ -117,8 +117,6 @@ int main(void)
  8000160:	607b      	str	r3, [r7, #4]
   while (1)
   {
-	  //HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-	  //HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
 	  if (c > 0){
  8000162:	687b      	ldr	r3, [r7, #4]
  8000164:	2b00      	cmp	r3, #0
