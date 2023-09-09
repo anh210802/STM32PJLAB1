@@ -91,26 +91,23 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int c = 0;
+  int c = 2;
   while (1)
   {
-	  if (c < 5){
+	  if (c > 0){
 		  HAL_GPIO_WritePin(LED_RED_GPIO_Port,LED_RED_Pin, GPIO_PIN_RESET);
 		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port,LED_YELLOW_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin, GPIO_PIN_SET);
-	  }
-	  else if (c >= 5 && c < 7) {
-		  HAL_GPIO_WritePin(LED_RED_GPIO_Port,LED_RED_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port,LED_YELLOW_Pin, GPIO_PIN_RESET);
-		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin, GPIO_PIN_SET);
 	  }
 	  else {
 		  HAL_GPIO_WritePin(LED_RED_GPIO_Port,LED_RED_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port,LED_YELLOW_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin, GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port,LED_YELLOW_Pin, GPIO_PIN_RESET);
+		  if (c < -1) {
+			  c = 2;
+			  HAL_GPIO_WritePin(LED_RED_GPIO_Port,LED_RED_Pin, GPIO_PIN_RESET);
+			  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port,LED_YELLOW_Pin, GPIO_PIN_SET);
+		  }
 	  }
-	  c++;
-	  if (c >= 10) c = 0;
+	  c--;
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
